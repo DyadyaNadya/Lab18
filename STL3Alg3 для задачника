@@ -1,0 +1,23 @@
+#include <algorithm>
+#include <iterator>
+#include <vector>
+#include <deque>
+#include <list>
+#include <functional>
+typedef ptin_iterator<int> ptin;
+typedef ptout_iterator<int> ptout;
+
+void Solve()
+{
+    Task("STL3Alg3");
+    list<int> L(ptin(0), ptin());
+    auto i = find(L.begin(), L.end(), 0);
+    i = L.erase(i);
+       list <int> :: reverse_iterator r = find(L.rbegin(), L.rend(), 0);
+         list <int> :: iterator itr = (++r).base();
+        itr = L.erase(itr);
+    
+
+    Show(L.begin(), L.end(), "L: ");
+    copy(L.begin(), L.end(), ptout());
+}
