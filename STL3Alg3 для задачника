@@ -1,3 +1,4 @@
+
 #include <algorithm>
 #include <iterator>
 #include <vector>
@@ -12,11 +13,15 @@ void Solve()
     Task("STL3Alg3");
     list<int> L(ptin(0), ptin());
     auto i = find(L.begin(), L.end(), 0);
-    i = L.erase(i);
-       list <int> :: reverse_iterator r = find(L.rbegin(), L.rend(), 0);
-         list <int> :: iterator itr = (++r).base();
+    if (i != L.end()) {
+        i = L.erase(i);
+    }
+
+    auto r = find(L.rbegin(), L.rend(), 0);
+    if (r != L.rend()) {
+        auto itr = (++r).base();
         itr = L.erase(itr);
-    
+    }
 
     Show(L.begin(), L.end(), "L: ");
     copy(L.begin(), L.end(), ptout());
